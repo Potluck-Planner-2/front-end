@@ -1,0 +1,146 @@
+.potluck-container {
+
+    display:flex;
+    justify-content: center;
+    width:100%;
+    border:1px solid black;
+
+}
+.potluck-main {
+
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    width:50%;
+    border:1px solid red;
+
+}
+.potluck-details {
+
+    padding-top:10px;
+    width:33%;
+    text-align:center;
+    
+
+}
+.spacer {
+
+    width:75%;
+    min-height:150px;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    
+    
+
+
+}
+.potluck-list {
+
+    margin:0px 0px 21px 25px;
+
+}
+
+.potluck-edit {
+
+    margin: 20px 20px 0px 0px;
+    width:50px;
+    height:20px;
+
+}
+h1 {
+
+    text-align:center;
+
+}
+.list-container {
+
+
+    display:flex;
+    flex-direction: column;
+    margin-left:20px;
+    margin-bottom:20px;
+    text-align:center;
+
+
+
+}
+.list-btn {
+
+    width:100px;
+    margin-top:5px;
+
+}
+.list-item {
+
+    border:1px solid red;
+    width:50%;
+    text-align:center;
+    margin-left:60px;
+
+}
+.navigation-container {
+
+    width:100%;
+    border:1px solid yellow;
+    display:flex;
+    justify-content: center;
+
+}
+
+.navigation {
+
+    width:40%;
+    display:flex;
+    justify-content: space-evenly;
+    border:1px solid blue;
+
+}
+.potluck-guests {
+
+
+    border:1px solid red;
+    width:20%;
+    text-align:center;
+
+
+}
+
+.guests-container {
+
+
+    display:flex;
+    justify-content: center;
+    width:100%;
+    min-height:150px;
+    border:1px solid red;
+    margin-top:10px;
+
+
+}
+.confirm {
+
+    text-align:center;
+    border:1px solid green;
+
+}
+.confirm-container {
+
+    width:100%;
+
+}
+.attendance {
+
+    text-align:center;
+    border:1px solid red;
+
+}
+.attendance {
+
+    
+    width:20%;
+    border:1px solid blue;
+    padding-top:25px;
+    margin-left:45px;
+
+}
