@@ -147,12 +147,12 @@ const CreatePotluck = (props) => {
         
         
         <div className='potluck-container'>
-                <div className='potluck-main'>
-                    <div onChange={handleChange} className='potluck-details'>Date: <input type='text' name='date' value={newPotluck.date}/></div>
-                    <div onChange={handleChange} className='potluck-details'>Time: <input type='text' name='time' value={newPotluck.time}/></div>
-                    <div onChange={handleChange} className='potluck-details'>Location: <input type='text' name='location' value={newPotluck.location}/></div>
+                <div className='potluck-main-two'>
+                    <div onChange={handleChange} className='potluck-details-two'>Date: <input className='list-input' type='text' name='date' value={newPotluck.date}/></div>
+                    <div onChange={handleChange} className='potluck-details-two'>Time: <input className='list-input' type='text' name='time' value={newPotluck.time}/></div>
+                    <div onChange={handleChange} className='potluck-details-two'>Location: <input className='list-input' type='text' name='location' value={newPotluck.location}/></div>
                     <div className='guests-container'>
-                        <div className='potluck-guests'>Invite Guests: 
+                        <div className='potluck-guests'><span className='bold'>Invite Guests</span>
                         {props.isLoadingPotentialGuests && <div>Loading...</div>}
                         {!props.isLoadingPotentialGuests && props.potentialGuests.map(user => {
 

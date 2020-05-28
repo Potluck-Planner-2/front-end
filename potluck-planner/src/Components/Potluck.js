@@ -112,7 +112,7 @@ const Potluck = (props) => {
 
                     </div>
                     <div className='list-container'>
-                        <input onChange={handleChange} type='text' name='list-item' value={newListItem} />
+                        <input className='list-input' onChange={handleChange} type='text' name='list-item' value={newListItem} />
                         <div><button className='list-btn' onClick={addToList}>Add to List</button></div>
                     </div>
                     {/* only show if you are the organizer of the potluck - check props.potluck.organizer - toggle show */}

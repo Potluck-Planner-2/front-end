@@ -3,8 +3,8 @@
     display:flex;
     justify-content: center;
     width:100%;
-    border:1px solid black;
-
+    margin-top:20px;
+    
 }
 .potluck-main {
 
@@ -12,16 +12,41 @@
     justify-content:space-between;
     flex-wrap:wrap;
     width:50%;
-    border:1px solid red;
+    border:1px solid #f0821b;
+    border-radius:5px;
+    background-color:rgba(0,0,0,0.6);
+    
+}
+.potluck-main-two {
 
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    width:50%;
+    border:1px solid #f0821b;
+    border-radius:5px;
+    background-color:rgba(0,0,0,0.6);
+    
 }
 .potluck-details {
 
     padding-top:10px;
-    width:33%;
+    padding-bottom:10px;
+    width:50%;
     text-align:center;
-    
+    background-color:#f0821b;
+    color:white;  
 
+}
+.potluck-details-two {
+
+    padding-top:10px;
+    padding-bottom:10px;
+    width:33.3%;
+    text-align:center;
+    background-color:#f0821b;
+    color:white;
+    
 }
 .spacer {
 
@@ -31,11 +56,6 @@
     flex-direction:column;
     justify-content: center;
     align-items:center;
-    
-    
-    
-    
-
 
 }
 .spacer-two {
@@ -45,29 +65,46 @@
     display:flex;
     flex-direction:column;
     justify-content: center;
-    border:1px solid blue;
-    
-    
-    
-
-
+   
 }
 .potluck-list {
 
     margin:0px 0px 21px 25px;
+    border-radius:2px;
+    border:1px solid #e3750e;
+    color:black;
+    background-color:white;
+    font-family: 'Mallanna', sans-serif;
+    
 
 }
+.potluck-list-two {
 
+    border-radius:2px;
+    border:1px solid #e3750e;
+    color:black;
+    background-color:white;
+    font-family: 'Mallanna', sans-serif;
+    
+
+}
 .potluck-edit {
 
     margin: 20px 20px 0px 0px;
-    width:50px;
-    height:20px;
+    width:60px;
+    height:30px;
+    border-radius:2px;
+    border:1px solid #e3750e;
+    color:black;
+    background-color:white;
+    font-family: 'Mallanna', sans-serif;
 
 }
 h1 {
 
     text-align:center;
+    color: #f0821b;
+    font-family: 'Fredericka the Great', cursive;
 
 }
 .list-container {
@@ -79,92 +116,122 @@ h1 {
     margin-bottom:20px;
     text-align:center;
 
-
-
 }
 .list-btn {
 
     width:100px;
     margin-top:5px;
+    border-radius:2px;
+    border:1px solid #e3750e;
+    color:black;
+    background-color:white;
+    font-family: 'Mallanna', sans-serif;
 
 }
 .list-item {
 
-    border:1px solid red;
+    border:1px solid white;
     width:50%;
     text-align:center;
+    background-color: #f0821b;
+    border-radius:2px; 
+    margin-bottom:2px;
+    color:white;
 
 }
 .list-item-two {
 
-    border:1px solid red;
+    
     width:50%;
     text-align:center;
     margin-left:60px;
+    border:1px solid white;
+    background-color: #f0821b;
+    border-radius:2px; 
+    margin-bottom:2px;
+    color:white;
 
 }
 .navigation-container {
 
     width:100%;
-    border:1px solid yellow;
     display:flex;
     justify-content: center;
+    margin-bottom:20px;
 
 }
+a {
 
+    color:white;
+    text-decoration:none;
+
+}
 .navigation {
 
     width:40%;
     display:flex;
     justify-content: space-evenly;
-    border:1px solid blue;
+    border:1px solid #f0821b;
+    border-radius: 5px;
+    background-color:rgba(0,0,0,0.5)
 
 }
 .potluck-guests {
 
-
-    border:1px solid red;
+    border:1px solid white;
+    border-radius:5px;
+    background-color:#f0821b;
     width:20%;
     text-align:center;
-
+    padding-top:10px;
+    padding-bottom:10px;
 
 }
 
 .guests-container {
 
-
     display:flex;
     justify-content: center;
     width:100%;
     min-height:150px;
-    border:1px solid red;
     margin-top:10px;
-
 
 }
 .confirm {
 
     text-align:center;
-    border:1px solid green;
-
+    
 }
 .confirm-container {
 
     width:100%;
 
 }
+
 .attendance {
 
+    margin-top:25px;
+    color:white;
     text-align:center;
-    border:1px solid red;
-
-}
-.attendance {
-
-    
     width:20%;
-    border:1px solid blue;
+    border:1px solid white;
+    border-radius:2px;
+    background-color:#f0821b;
     padding-top:25px;
     margin-left:45px;
+
+}
+.list-input {
+
+
+    border-radius:2px;
+    border:1px solid #e3750e;
+
+
+}
+.bold {
+
+    font-weight:bold;
+    text-decoration:underline;
 
 }
