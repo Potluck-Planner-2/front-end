@@ -91,16 +91,16 @@ const GuestPotluck = (props) => {
     return (
 
         <div className='potluck-container'>
-                <div className='potluck-main'>
-                    <div className='potluck-details'>Datetime: {props.invite.datetime}</div>
-                    <div className='potluck-details'></div>
-                    <div className='potluck-details'>Location: {props.invite.location}</div>
+                <div className='potluck-main-two'>
+                    <div className='potluck-details-two'>Datetime: {props.invite.datetime}</div>
+                    <div className='potluck-details-two'></div>
+                    <div className='potluck-details-two'>Location: {props.invite.location}</div>
                     {/* map through all list items and create <ListItem /> for each */}
                     {/* on click List, opens text box to add another item to list */}
                     
                     <div className='attendance'>
                         {attendance && <div>You have confirmed attendance!</div>}
-                        {!attendance && <p>Confirm attendance?<button onClick={confirmAttendance}>Confirm</button></p>}
+                        {!attendance && <p>Confirm attendance?<button className='potluck-list-two' onClick={confirmAttendance}>Confirm</button></p>}
                             
                             
                     </div>
@@ -116,7 +116,7 @@ const GuestPotluck = (props) => {
                     </div>
                     <div className='confirm-container'>
                         <div className='confirm'>
-                            <button onClick={confirmItems}>Confirm Items</button> 
+                            <button className='potluck-list' onClick={confirmItems}>Confirm Items</button> 
                         </div>                   
                     </div>
                     {/* only show if you are the organizer of the potluck - check props.potluck.organizer - toggle show */}

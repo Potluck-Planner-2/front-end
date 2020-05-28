@@ -12,25 +12,7 @@ import Login from './Components/Login';
 
 
 function App() {
-  
-  useEffect(() => {
-
-
-    axios.post('https://potluck-planner-1111.herokuapp.com/api/login', {username:'patrick' , password:'harl'})
-          .then(res=> {
-
-            localStorage.setItem('token', res.data.token)
-
-          })
-          .catch(err=> {
-
-            console.log(err)
-
-          })
-
-
-  }, [])
-  
+    
   return (
     <div>
       <Router>
@@ -42,6 +24,7 @@ function App() {
           <PrivateRoute exact path='/potlucks/invites' component={Invites} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+
 
         </Switch>
       </Router>

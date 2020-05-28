@@ -60,8 +60,8 @@ const EditPotluck = () => {
 
         <div className='potluck-container'>
                 <div className='potluck-main'>
-                    <div onChange={handleChange} className='potluck-details'>Datetime: <input type='text' name='datetime' value={editPotluck.datetime}/></div>
-                    <div onChange={handleChange} className='potluck-details'>Location: <input type='text' name='location' value={editPotluck.location} /></div>
+                    <div onChange={handleChange} className='potluck-details'>Datetime: <input className='list-input' type='text' name='datetime' value={editPotluck.datetime}/></div>
+                    <div onChange={handleChange} className='potluck-details'>Location: <input className='list-input' type='text' name='location' value={editPotluck.location} /></div>
                     {/* map through all list items and create <ListItem /> for each */}
                     {/* on click List, opens text box to add another item to list */}
                     <div className='spacer'></div>

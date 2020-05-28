@@ -19,7 +19,7 @@ const Potlucks = (props) => {
 
     return (
 
-        <div>
+        <div className='potlucks-container'>
         <h1>My Potlucks</h1>
         <div className='navigation-container'>
             <nav className='navigation'>
