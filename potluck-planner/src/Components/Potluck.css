@@ -25,11 +25,28 @@
 }
 .spacer {
 
-    width:75%;
+    width:100%;
     min-height:150px;
     display:flex;
     flex-direction:column;
     justify-content: center;
+    align-items:center;
+    
+    
+    
+    
+
+
+}
+.spacer-two {
+
+    width:74%;
+    min-height:150px;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    border:1px solid blue;
+    
     
     
 
@@ -72,6 +89,13 @@ h1 {
 
 }
 .list-item {
+
+    border:1px solid red;
+    width:50%;
+    text-align:center;
+
+}
+.list-item-two {
 
     border:1px solid red;
     width:50%;

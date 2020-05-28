@@ -1,25 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Potluck from './Potluck'
 import './Potluck.css'
 import { Link } from 'react-router-dom'
-
-const fakePotluckData = {
-
-    date: '11/20/2020',
-    time: '8:00 PM',
-    location: {
-
-        street: '731 Wilton Ave',
-        city: 'Los Angeles',
-        state: 'CA'
-
-    },
-    list: ['tacos', 'bananas', 'tuna casserole', 'cherry pie']
+import { fetchOrganizersPotluckData } from '../Redux/actions'
+import { connect } from 'react-redux'
 
 
-}
 
-const Potlucks = () => {
+const Potlucks = (props) => {
+
+    useEffect(() => {
+
+        props.fetchOrganizersPotluckData()
+        
+
+
+    }, [])
 
     return (
 
@@ -35,11 +31,31 @@ const Potlucks = () => {
             </nav>
         </div>
         {/* make a call to api and grab all potlucks that current user is an organizer for, call function that will: grab the data and dispatch an action event type: FETCH_USER_POTLUCKS_AS_ORGANIZER START, SUCCESS, FAILURE while passing in payload data */}
-        <Potluck potluck={fakePotluckData} />
+        
+        {props.isLoadingOrganizerPotlucks && <div>Loading...</div>}
+        {!props.isLoadingOrganizerPotlucks && props.myPotlucks.length > 0 && props.myPotlucks.map(potluck => {
+
+            return <Potluck potluck={potluck} />
+
+
+        })}
         </div>
         
     )
 
 
 }
-export default Potlucks
+
+const mapStateToProps = state => {
+
+    return {
+
+    isLoadingPotentialGuests: state.isLoadingPotentialGuests,
+    isLoadingOrganizerPotlucks: state.isLoadingOrganizerPotlucks,
+    potentialGuests: state.potentialGuests,
+    myPotlucks: state.myPotlucks
+
+    }
+
+}
+export default connect(mapStateToProps, { fetchOrganizersPotluckData })(Potlucks)

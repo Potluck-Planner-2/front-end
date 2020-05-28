@@ -1,24 +1,58 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, Component } from 'react'
 import './Potluck.css'
 import EditPotluck from './EditPotluck'
 import { useHistory } from 'react-router'
 import ListItemPotluck from './ListItemPotluck.js'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
+import { fetchOrganizersPotluckData } from '../Redux/actions'
+import { connect } from 'react-redux'
 
-const dummyListData = ['tacos', 'burritos', 'chalupas', 'ice cream', 'pie']
+
 
 
 const Potluck = (props) => {
 
-   const [listData, setListData] = useState(dummyListData)
    const [newListItem, setNewListItem] = useState('')
+   const [itemList, setItemList] = useState([])
    const history= useHistory()
+   
+  
 
+ useEffect(()=> {
+
+
+    axiosWithAuth().get(`/api/items/potlucks/${props.potluck.id}`)
+    .then(res=> {
+        
+        setItemList(res.data.items)             
+        
+ 
+    })
+    .catch(err=> {
+ 
+        console.log(err)
+ 
+    })
+
+
+
+ }, [newListItem])
+    
 
    const addToList = () => {
 
 
-        setListData([...listData, newListItem])
-        setNewListItem('')
+        axiosWithAuth().post('/api/items', {name:newListItem, potluck_id:props.potluck.id})
+                        .then(res=> {
+
+                            setNewListItem('')
+
+                        })
+                        .catch(err=> {
+
+                            console.log(err)
+
+                        })
 
 
    }
@@ -38,25 +72,43 @@ const Potluck = (props) => {
 
    }
 
+   const deletePotluck = (id) => {
+
+
+        axiosWithAuth().delete(`/api/potlucks/${id}`)
+                        .then(res=> {
+
+                            props.fetchOrganizersPotluckData()
+
+                        })
+                        .catch(err=> {
+
+                            console.log(err)
+
+                        })
+
+
+   }
+
+   
+
     return (
 
 
             <div className='potluck-container'>
                 <div className='potluck-main'>
-                    <div className='potluck-details'>Date: {props.potluck.date}</div>
-                    <div className='potluck-details'>Time: {props.potluck.time}</div>
-                    <div className='potluck-details'>Location: {props.potluck.location.street}, {props.potluck.location.city}, {props.potluck.location.state}</div>
-                    {/* map through all list items and create <ListItem /> for each */}
-                    {/* on click List, opens text box to add another item to list */}
+                    <div className='potluck-details'>Datetime: {props.potluck.datetime}</div>
+                    <div className='potluck-details'>Location: {props.potluck.location}</div>
+                   
                     
                     <div className='spacer'>
 
-                        {listData.map(item => {
-
-                            return <ListItemPotluck item={item} />
-
-
-                        })}
+                    {itemList.map(item=> {
+                        
+                        return <ListItemPotluck item={item} />
+                        
+                        
+                    })}    
 
                     </div>
                     <div className='list-container'>
@@ -64,7 +116,8 @@ const Potluck = (props) => {
                         <div><button className='list-btn' onClick={addToList}>Add to List</button></div>
                     </div>
                     {/* only show if you are the organizer of the potluck - check props.potluck.organizer - toggle show */}
-                    <button className='potluck-edit' onClick={() => {editPotluckDetails(1)}}>Edit</button>
+                    <button className='potluck-edit' onClick={() => {editPotluckDetails(props.potluck.id)}}>Edit</button>
+                    <button className='potluck-edit' onClick={() => {deletePotluck(props.potluck.id)}}>Delete</button>
                 </div>
             </div>
 
@@ -74,4 +127,21 @@ const Potluck = (props) => {
 
 }
 
-export default Potluck
+const mapStateToProps = state => {
+
+
+    return{
+
+        isLoadingPotentialGuests: state.isLoadingPotentialGuests,
+        isLoadingOrganizerPotlucks: state.isLoadingOrganizerPotlucks,
+        isLoadingInvites: state.isLoadingInvites,
+        invites: state.invites,
+        potentialGuests: state.potentialGuests,
+        myPotlucks: state.myPotlucks
+
+
+    }
+
+}
+
+export default connect(mapStateToProps, {fetchOrganizersPotluckData})(Potluck)
