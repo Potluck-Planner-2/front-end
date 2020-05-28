@@ -9,7 +9,7 @@ const loginFormSchema = yup.object().shape({
   password: yup
     .string()
     .trim()
-    .min(8, 'Password as entered is too short')
+    .min(4, 'Password as entered is too short')
     .required('Your password is required'),
 });
 

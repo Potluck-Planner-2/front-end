@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 import axios from 'axios';
 import loginFormSchema from '../validation/loginFormSchema';
@@ -13,12 +14,9 @@ const initialFormErrors = {
   password: '',
 };
 
-const initialLoggedInUser = [];
 const initialDisabled = true;
 
 export default function Login(props) {
-  // slice of state to hold the user to submit
-  const [loggedInUser, setLoggedInUser] = useState(initialLoggedInUser);
   // slice of state to hold the current form values
   const [formValues, setFormValues] = useState(initialFormValues);
   // slice of state to hold the errors, which update based on validation
@@ -26,19 +24,21 @@ export default function Login(props) {
   // slice of state to determine button clickability
   const [disabled, setDisabled] = useState(initialDisabled);
 
+  let history = useHistory();
+
   const loginUser = (user) => {
-    console.log(user);
-    // axios
-    //   // post the sign-in info (form data) to the /login endpoint
-    //   .post('endpoint goes here', user)
-    //   .then((res) => {
-    //      // do something with the data and setLoggedInUser
-    //     // reset the form values on success
-    //     setFormValues(initialFormValues);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    axios
+      // post the sign-in info (form data) to the /login endpoint
+      .post('https://potluck-planner-1111.herokuapp.com/api/login', user)
+      .then((res) => {
+        // put the token received from the server into local storage
+        localStorage.setItem('token', JSON.stringify(res.data.token));
+        // navigate to the potlucks "home page"
+        history.push('/potlucks');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const onInputChange = (evt) => {

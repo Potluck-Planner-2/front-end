@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 import axios from 'axios';
 import registerFormSchema from '../validation/registerFormSchema';
@@ -19,12 +20,9 @@ const initialFormErrors = {
   password: '',
 };
 
-const initialUser = [];
 const initialDisabled = true;
 
 export default function Register(props) {
-  // slice of state to hold the user to submit
-  const [user, setUser] = useState(initialUser);
   // slice of state to hold the current form values
   const [formValues, setFormValues] = useState(initialFormValues);
   // slice of state to hold the errors, which update based on validation
@@ -32,19 +30,20 @@ export default function Register(props) {
   // slice of state to determine button clickability
   const [disabled, setDisabled] = useState(initialDisabled);
 
+  let history = useHistory();
+
   const postNewUser = (newUser) => {
-    console.log(newUser);
-    // axios
-    //   // post the new user (form data) to the /users endpoint
-    //   .post('endpoint goes here', newUser)
-    //   .then((res) => {
-    //     // do something with the data and setUser
-    //     // reset the form values on success
-    //     setFormValues(initialFormValues);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    axios
+      // post the new user (form data) to the /users endpoint
+      .post('https://potluck-planner-1111.herokuapp.com/api/users', newUser)
+      .then((res) => {
+        console.log(res);
+        // navigate to the log in page so they can sign in with new account
+        history.push('/login');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const onInputChange = (evt) => {
@@ -146,6 +145,7 @@ export default function Register(props) {
       </label>
 
       <button disabled={disabled}>Submit</button>
+
       <div className="errors">
         <div>{formErrors.first_name}</div>
         <div>{formErrors.last_name}</div>
