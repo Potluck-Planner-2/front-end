@@ -8,9 +8,11 @@ const Guest = (props) => {
 
 
         <div>
+            
+        
+            <div>{props.user.first_name} {props.user.last_name}<input onChange={props.handleGuestChange} id={props.user.id} name={props.user.id} type='checkbox' /></div>
 
-            <div>{props.user}<input type='checkbox' /></div>
-
+        
         </div>
 
 

@@ -1,29 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import GuestPotluck from './GuestPotLuck'
-
-
-const dummyInvite = 
-    {
-
-    date: '11/20/2020',
-    time: '8:00 PM',
-    location: {
-
-        street: '731 Wilton Ave',
-        city: 'Los Angeles',
-        state: 'CA'
-
-    },
-    list: ['tacos', 'bananas', 'tuna casserole', 'cherry pie']
+import { fetchInvites } from '../Redux/actions'
+import { connect } from 'react-redux'
 
 
 
-    }
+const Invites = (props) => {
+
+    useEffect(() => {
 
 
-const Invites = () => {
+        props.fetchInvites()
 
+
+    }, [])
 
     return (
 
@@ -39,7 +30,15 @@ const Invites = () => {
                 <Link to='/potlucks/invites'>My Invites</Link>
             </nav>
         </div>
-        <GuestPotluck invite={dummyInvite}/>
+        {props.isLoadingInvites && <div>Loading...</div>}
+        {!props.isLoadingInvites && props.invites.length > 0 && props.invites.map(invite=> {
+
+            return <GuestPotluck invite={invite}/>
+
+
+        })}
+        
+        
         </div>
 
 
@@ -47,4 +46,19 @@ const Invites = () => {
 
 
 }
-export default Invites
+const mapStateToProps = state => {
+
+
+    return {
+
+
+        isLoadingInvites: state.isLoadingInvites,
+        invites: state.invites
+
+
+    }
+
+
+}
+
+export default connect(mapStateToProps, { fetchInvites })(Invites)

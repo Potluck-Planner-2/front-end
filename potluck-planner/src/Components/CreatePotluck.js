@@ -1,14 +1,136 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Potluck.css'
 import Guest from './Guest'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
+import { useHistory } from 'react-router'
+import { fetchUsers } from '../Redux/actions'
 
 
-const initialUsers = ['Patrick Harl', 'Michael Jordan', 'Tom Brady']
+const initialPotluck = {
 
-const CreatePotluck = () => {
+    date:'',
+    time:'',
+    location:'',
+    guests: []
 
-    const [users, setUsers] = useState(initialUsers)
+
+}
+
+const CreatePotluck = (props) => {
+
+    const [newPotluck, setNewPotluck] = useState(initialPotluck)
+    const history = useHistory()
+
+
+    useEffect(()=> {
+
+
+        props.fetchUsers()
+
+
+
+    },[])
+
+    const createNewPotluck = () => {
+    
+        axiosWithAuth().post('/api/potlucks', {name: 'potluck', location: newPotluck.location, datetime: `${newPotluck.date}, ${newPotluck.time}`})
+                            .then(res=> {
+                                console.log(res)
+                                newPotluck.guests.forEach(guest=> {
+
+                                    axiosWithAuth().post('/api/invites', {user_id: guest.id, potluck_id:res.data.potluck.id})
+                                                    .then(res=> {
+
+                                                        
+
+                                                    })
+                                                    .catch(err=> {
+
+                                                        console.log(err)
+
+                                                    })
+
+                                })
+                                
+
+                                setNewPotluck(initialPotluck)
+                                history.push('/potlucks')
+    
+                            })
+                            .catch(err=> {
+    
+                                console.log(err)
+    
+                            })
+    
+            
+    }
+
+    const handleChange = (e) => {
+
+
+        setNewPotluck({
+
+            ...newPotluck,
+            [e.target.name]: e.target.value
+
+        })
+
+
+    }
+
+    const handleGuestChange = (e) => {
+
+        if(e.target.checked)
+        {
+
+            axiosWithAuth().get(`/api/users/${e.target.id}`)
+                        .then(res=> {
+
+                            setNewPotluck({
+
+
+                                ...newPotluck,
+                                guests: [
+                    
+                                    ...newPotluck.guests,
+                                    res.data.user
+                    
+                                ]
+                    
+                            })
+
+                        })
+                        .catch(err => {
+
+                            console.log(err)
+
+                        })
+        }
+        else {
+
+            const filteredPotluck = newPotluck.guests.filter(guest=> {
+
+                return JSON.stringify(guest.id) !== e.target.id
+
+            })
+
+            console.log(filteredPotluck)
+
+            setNewPotluck({
+
+
+                ...newPotluck,
+                guests: filteredPotluck
+
+
+            })
+
+        }
+        
+    }
 
     return (
         <div>
@@ -22,34 +144,53 @@ const CreatePotluck = () => {
                 <Link to='/potlucks/invites'>My Invites</Link>
             </nav>
         </div>
+        
+        
         <div className='potluck-container'>
                 <div className='potluck-main'>
-                    <div className='potluck-details'>Date: <input type='text' name='date' /></div>
-                    <div className='potluck-details'>Time: <input type='text' name='time' /></div>
-                    <div className='potluck-details'>Location: <input type='text' name='location' /></div>
+                    <div onChange={handleChange} className='potluck-details'>Date: <input type='text' name='date' value={newPotluck.date}/></div>
+                    <div onChange={handleChange} className='potluck-details'>Time: <input type='text' name='time' value={newPotluck.time}/></div>
+                    <div onChange={handleChange} className='potluck-details'>Location: <input type='text' name='location' value={newPotluck.location}/></div>
                     <div className='guests-container'>
                         <div className='potluck-guests'>Invite Guests: 
-                        {users.map(user => {
+                        {props.isLoadingPotentialGuests && <div>Loading...</div>}
+                        {!props.isLoadingPotentialGuests && props.potentialGuests.map(user => {
 
 
-                            return <Guest user={user} />
+                            return <Guest handleGuestChange={handleGuestChange} user={user} />
 
 
                         })}
-                        
+                                   
+                    
                         
                         </div>
                     </div>
-                    <button className='potluck-list'>Create Potluck</button>
+                    <button onClick={createNewPotluck} className='potluck-list'>Create Potluck</button>
+                    
                 </div>
         </div>
+        }
         </div>
 
 
     )
 
+    }
+
+const mapStateToProps = state => {
+
+
+    return {
+
+
+        isLoadingPotentialGuests: state.isLoadingPotentialGuests,
+        potentialGuests: state.potentialGuests
+
+
+    }
 
 
 }
 
-export default CreatePotluck
+export default connect(mapStateToProps, { fetchUsers })(CreatePotluck)

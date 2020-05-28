@@ -14,7 +14,7 @@ export const axiosWithAuth = () => {
             Authorization: token
 
         },
-        baseURL: 'http://localhost:5000'
+        baseURL: 'https://potluck-planner-1111.herokuapp.com'
 
     })
 

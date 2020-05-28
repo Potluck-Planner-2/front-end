@@ -9,7 +9,7 @@ const ListItemPotluck = (props) => {
     return (
         
            
-                <div className='list-item'>{item}<input type='checkbox' disabled='true' /></div>
+    <div className='list-item'>{item.name} ({item.first_name})</div>
          
         
     )
