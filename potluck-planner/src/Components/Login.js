@@ -32,7 +32,7 @@ export default function Login(props) {
       .post('https://potluck-planner-1111.herokuapp.com/api/login', user)
       .then((res) => {
         // put the token received from the server into local storage
-        localStorage.setItem('token', JSON.stringify(res.data.token));
+        localStorage.setItem('token', res.data.token);
         // navigate to the potlucks "home page"
         history.push('/potlucks');
       })
@@ -92,7 +92,7 @@ export default function Login(props) {
       <h1>Sign-In</h1>
       <div className="navigation-container">
         <nav className="navigation">
-          <Link to="/login">Login</Link>
+          <Link to="/">Login</Link>
           <Link to="/register">Register</Link>
           <Link to="/potlucks">My Potlucks</Link>
           <Link to="/potlucks/create">Create a Potluck</Link>

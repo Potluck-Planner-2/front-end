@@ -23,7 +23,7 @@ const Invites = (props) => {
         <h1>My Invites</h1>
         <div className='navigation-container'>
             <nav className='navigation'>
-                <Link to='/login'>Login</Link>
+                <Link to='/'>Login</Link>
                 <Link to='/register'>Register</Link>
                 <Link to='/potlucks'>My Potlucks</Link>
                 <Link to='/potlucks/create'>Create a Potluck</Link>
