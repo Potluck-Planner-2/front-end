@@ -1,237 +1,230 @@
 .potluck-container {
-
-    display:flex;
-    justify-content: center;
-    width:100%;
-    margin-top:20px;
-    
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
 }
 .potluck-main {
-
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    width:50%;
-    border:1px solid #f0821b;
-    border-radius:5px;
-    background-color:rgba(0,0,0,0.6);
-    
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 50%;
+  border: 1px solid #f0821b;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 .potluck-main-two {
-
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    width:50%;
-    border:1px solid #f0821b;
-    border-radius:5px;
-    background-color:rgba(0,0,0,0.6);
-    
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 50%;
+  border: 1px solid #f0821b;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 .potluck-details {
-
-    padding-top:10px;
-    padding-bottom:10px;
-    width:50%;
-    text-align:center;
-    background-color:#f0821b;
-    color:white;  
-
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 50%;
+  text-align: center;
+  background-color: #f0821b;
+  color: white;
 }
 .potluck-details-two {
-
-    padding-top:10px;
-    padding-bottom:10px;
-    width:33.3%;
-    text-align:center;
-    background-color:#f0821b;
-    color:white;
-    
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 33.3%;
+  text-align: center;
+  background-color: #f0821b;
+  color: white;
 }
 .spacer {
-
-    width:100%;
-    min-height:150px;
-    display:flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items:center;
-
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .spacer-two {
-
-    width:74%;
-    min-height:150px;
-    display:flex;
-    flex-direction:column;
-    justify-content: center;
-   
+  width: 74%;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .potluck-list {
-
-    margin:0px 0px 21px 25px;
-    border-radius:2px;
-    border:1px solid #e3750e;
-    color:black;
-    background-color:white;
-    font-family: 'Mallanna', sans-serif;
-    
-
+  margin: 0px 0px 21px 25px;
+  border-radius: 2px;
+  border: 1px solid #e3750e;
+  color: black;
+  background-color: white;
+  font-family: 'Mallanna', sans-serif;
 }
 .potluck-list-two {
-
-    border-radius:2px;
-    border:1px solid #e3750e;
-    color:black;
-    background-color:white;
-    font-family: 'Mallanna', sans-serif;
-    
-
+  border-radius: 2px;
+  border: 1px solid #e3750e;
+  color: black;
+  background-color: white;
+  font-family: 'Mallanna', sans-serif;
 }
 .potluck-edit {
-
-    margin: 20px 20px 0px 0px;
-    width:60px;
-    height:30px;
-    border-radius:2px;
-    border:1px solid #e3750e;
-    color:black;
-    background-color:white;
-    font-family: 'Mallanna', sans-serif;
-
+  margin: 20px 20px 0px 0px;
+  width: 60px;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid #e3750e;
+  color: black;
+  background-color: white;
+  font-family: 'Mallanna', sans-serif;
 }
 h1 {
-
-    text-align:center;
-    color: #f0821b;
-    font-family: 'Fredericka the Great', cursive;
-
+  text-align: center;
+  color: #f0821b;
+  font-family: 'Fredericka the Great', cursive;
 }
 .list-container {
-
-
-    display:flex;
-    flex-direction: column;
-    margin-left:20px;
-    margin-bottom:20px;
-    text-align:center;
-
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 .list-btn {
-
-    width:100px;
-    margin-top:5px;
-    border-radius:2px;
-    border:1px solid #e3750e;
-    color:black;
-    background-color:white;
-    font-family: 'Mallanna', sans-serif;
-
+  width: 100px;
+  margin-top: 5px;
+  border-radius: 2px;
+  border: 1px solid #e3750e;
+  color: black;
+  background-color: white;
+  font-family: 'Mallanna', sans-serif;
 }
 .list-item {
-
-    border:1px solid white;
-    width:50%;
-    text-align:center;
-    background-color: #f0821b;
-    border-radius:2px; 
-    margin-bottom:2px;
-    color:white;
-
+  border: 1px solid white;
+  width: 50%;
+  text-align: center;
+  background-color: #f0821b;
+  border-radius: 2px;
+  margin-bottom: 2px;
+  color: white;
 }
 .list-item-two {
-
-    
-    width:50%;
-    text-align:center;
-    margin-left:60px;
-    border:1px solid white;
-    background-color: #f0821b;
-    border-radius:2px; 
-    margin-bottom:2px;
-    color:white;
-
+  width: 50%;
+  text-align: center;
+  margin-left: 60px;
+  border: 1px solid white;
+  background-color: #f0821b;
+  border-radius: 2px;
+  margin-bottom: 2px;
+  color: white;
 }
 .navigation-container {
-
-    width:100%;
-    display:flex;
-    justify-content: center;
-    margin-bottom:20px;
-
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 a {
-
-    color:white;
-    text-decoration:none;
-
+  color: white;
+  text-decoration: none;
 }
 .navigation {
-
-    width:40%;
-    display:flex;
-    justify-content: space-evenly;
-    border:1px solid #f0821b;
-    border-radius: 5px;
-    background-color:rgba(0,0,0,0.5)
-
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid #f0821b;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .potluck-guests {
-
-    border:1px solid white;
-    border-radius:5px;
-    background-color:#f0821b;
-    width:20%;
-    text-align:center;
-    padding-top:10px;
-    padding-bottom:10px;
-
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #f0821b;
+  width: 20%;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .guests-container {
-
-    display:flex;
-    justify-content: center;
-    width:100%;
-    min-height:150px;
-    margin-top:10px;
-
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 150px;
+  margin-top: 10px;
 }
 .confirm {
-
-    text-align:center;
-    
+  text-align: center;
 }
 .confirm-container {
-
-    width:100%;
-
+  width: 100%;
 }
 
 .attendance {
-
-    margin-top:25px;
-    color:white;
-    text-align:center;
-    width:20%;
-    border:1px solid white;
-    border-radius:2px;
-    background-color:#f0821b;
-    padding-top:25px;
-    margin-left:45px;
-
+  margin-top: 25px;
+  color: white;
+  text-align: center;
+  width: 20%;
+  border: 1px solid white;
+  border-radius: 2px;
+  background-color: #f0821b;
+  padding-top: 25px;
+  margin-left: 45px;
 }
 .list-input {
-
-
-    border-radius:2px;
-    border:1px solid #e3750e;
-
-
+  border-radius: 2px;
+  border: 1px solid #e3750e;
 }
 .bold {
+  font-weight: bold;
+  text-decoration: underline;
+}
 
-    font-weight:bold;
-    text-decoration:underline;
+/* Barbara's Additional Styles */
 
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #f0821b;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1.1rem;
+}
+
+form label {
+  padding: 1% 0;
+  width: 60%;
+  text-align: center;
+}
+
+form input {
+  width: 100%;
+}
+
+form button {
+  margin: 2% 0;
+  width: 120px;
+  height: 35px;
+  border: 2px solid #f0821b;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.form-error {
+  width: 100%;
+  color: white;
+  background-color: #f0821b;
+  text-align: center;
 }

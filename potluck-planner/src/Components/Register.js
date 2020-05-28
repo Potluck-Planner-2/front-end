@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import * as yup from 'yup';
 import axios from 'axios';
 import registerFormSchema from '../validation/registerFormSchema';
@@ -96,63 +96,73 @@ export default function Register(props) {
   }, [formValues]);
 
   return (
-    <form onSubmit={onSubmit}>
-      <h2>New User Sign-Up</h2>
-      <label>
-        First Name:&nbsp;
-        <input
-          name="first_name"
-          type="text"
-          onChange={onInputChange}
-          value={formValues.first_name}
-        />
-      </label>
-      <label>
-        Last Name:&nbsp;
-        <input
-          name="last_name"
-          type="text"
-          onChange={onInputChange}
-          value={formValues.last_name}
-        />
-      </label>
-      <label>
-        Email:&nbsp;
-        <input
-          name="email"
-          type="email"
-          onChange={onInputChange}
-          value={formValues.email}
-        />
-      </label>
-      <label>
-        Username:&nbsp;
-        <input
-          name="username"
-          type="text"
-          onChange={onInputChange}
-          value={formValues.username}
-        />
-      </label>
-      <label>
-        Password:&nbsp;
-        <input
-          name="password"
-          type="password"
-          onChange={onInputChange}
-          value={formValues.password}
-        />
-      </label>
-
-      <button disabled={disabled}>Submit</button>
-
-      <div className="errors">
-        <div>{formErrors.first_name}</div>
-        <div>{formErrors.last_name}</div>
-        <div>{formErrors.email}</div>
-        <div>{formErrors.username}</div>
-        <div>{formErrors.password}</div>
+    <div>
+      <h1>New User Registration</h1>
+      <div className="navigation-container">
+        <nav className="navigation">
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+          <Link to="/potlucks">My Potlucks</Link>
+          <Link to="/potlucks/create">Create a Potluck</Link>
+          <Link to="/potlucks/invites">My Invites</Link>
+        </nav>
       </div>
-    </form>
+      <div className="form-container">
+        <form onSubmit={onSubmit}>
+          <label>
+            First Name:&nbsp;
+            <input
+              name="first_name"
+              type="text"
+              onChange={onInputChange}
+              value={formValues.first_name}
+            />
+          </label>
+          <div className="form-error">{formErrors.first_name}</div>
+          <label>
+            Last Name:&nbsp;
+            <input
+              name="last_name"
+              type="text"
+              onChange={onInputChange}
+              value={formValues.last_name}
+            />
+          </label>
+          <div className="form-error">{formErrors.last_name}</div>
+          <label>
+            Email:&nbsp;
+            <input
+              name="email"
+              type="email"
+              onChange={onInputChange}
+              value={formValues.email}
+            />
+          </label>
+          <div className="form-error">{formErrors.email}</div>
+          <label>
+            Username:&nbsp;
+            <input
+              name="username"
+              type="text"
+              onChange={onInputChange}
+              value={formValues.username}
+            />
+          </label>
+          <div className="form-error">{formErrors.username}</div>
+          <label>
+            Password:&nbsp;
+            <input
+              name="password"
+              type="password"
+              onChange={onInputChange}
+              value={formValues.password}
+            />
+          </label>
+          <div className="form-error">{formErrors.password}</div>
+
+          <button disabled={disabled}>Submit</button>
+        </form>
+      </div>
+    </div>
   );
 }
