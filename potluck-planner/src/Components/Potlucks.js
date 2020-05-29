@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Potluck from './Potluck'
 import './Potluck.css'
 import { Link } from 'react-router-dom'
@@ -13,7 +13,6 @@ const Potlucks = (props) => {
 
         props.fetchOrganizersPotluckData()
         
-
 
     }, [])
 

@@ -14,6 +14,7 @@ const Potluck = (props) => {
 
    const [newListItem, setNewListItem] = useState('')
    const [itemList, setItemList] = useState([])
+   const [firstName, setFirstName] = useState('')
    const history= useHistory()
    
   
@@ -24,7 +25,15 @@ const Potluck = (props) => {
     axiosWithAuth().get(`/api/items/potlucks/${props.potluck.id}`)
     .then(res=> {
         
-        setItemList(res.data.items)             
+        setItemList(res.data.items) 
+        
+        axiosWithAuth().get(`/api/users/${props.potluck.organizer_id}`)
+                        .then((res) => {
+                            setFirstName(res.data.user.first_name)
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
         
  
     })
@@ -97,8 +106,9 @@ const Potluck = (props) => {
 
             <div className='potluck-container'>
                 <div className='potluck-main'>
-                    <div className='potluck-details'>Datetime: {props.potluck.datetime}</div>
-                    <div className='potluck-details'>Location: {props.potluck.location}</div>
+                    <div className='potluck-details-two'>Datetime: {props.potluck.datetime}</div>
+                    <div className='potluck-details-two'>Location: {props.potluck.location}</div>
+                    <div className='potluck-details-two'>Organizer: {firstName}</div>
                    
                     
                     <div className='spacer'>
