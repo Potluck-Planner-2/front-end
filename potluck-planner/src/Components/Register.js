@@ -39,7 +39,7 @@ export default function Register(props) {
       .then((res) => {
         console.log(res);
         // navigate to the log in page so they can sign in with new account
-        history.push('/login');
+        history.push('/');
       })
       .catch((err) => {
         console.log(err);
